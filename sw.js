@@ -3,6 +3,15 @@ const CACHE_NAME = "v1_pwa_moduloencuestas";
 //Archivos para la cache (no acepta carpetas)
 var urlsToCache = [
     './',
+    './css/style.css',
+    './answer.html',
+    './create.html',
+    './dashboard.html',
+    './edit.html',
+    './surveyAnswer.html',
+    './user.html',
+    './view.html',
+    './video/presentacion.mp4',
     './img/analytics.svg',
     './img/bar-chart.svg',
     './img/borrar.png',
@@ -41,10 +50,11 @@ self.addEventListener('install', e =>{
     );
 });
 
+
+
 //activate: ayuda a que la app pueda funcionar sin conexión
 self.addEventListener('activate', e => {
     const cacheWhitelist = [CACHE_NAME];
-
     e.waitUntil(
         caches.keys()
             .then( cacheNames => {
@@ -70,7 +80,6 @@ self.addEventListener('fetch', e => {
                 if(resp){
                     return resp;
                 }
-
                 return fetch( e.request );
             })
     );
