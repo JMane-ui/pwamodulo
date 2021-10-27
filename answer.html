@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <title>Solucionestai Módulo encuestas</title>
+    <link rel="shortcut icon" href="./img/favicon/favicon.png" type="image/png">    
+    <meta name="description" content="Aplicación Web Progresiva de un módulo de encuestas automatizado y entrega de resultados">
+
+    <!-- Windows  -->
+    <meta name="msapplication-navbutton-color" content="#24345c">
+    <meta name="msapplication-TileColor" content="#7c942c">
+
+    <!-- Android  -->
+    <meta name="theme-color" content="#7c942c">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Apple -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- Night Mode  -->
+    <meta name="nightmode" content="enable">
+    <!--Indicar color de tema-->
+    <meta name="theme-color" content="#000">
+    <!--Optimización-->
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <!--Apple (IOS)-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="./img/favicon/favicon.png">
+    <link rel="apple-touch-startup-image" href="./img/favicon/favicon.png">
+</head>
+
+<body>
+    <div class="container p-0">
+        <nav class="navbar navbar-light py-4">
+
+            <a class="navbar-brand" href="./dashboard.html"><img src="img/circle-cropped.png" width="54"></a>
+
+            <ul class="nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <img class="rounded-circle" src="img/person.svg" alt="logo" width="24">
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Configuracion
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="./create.html">Nueva Encuesta</a></li>
+                            <li><a class="dropdown-item" href="./user.html">Ajustes</a></li>
+                            <li><a class="dropdown-item" href="./index.html">Cerrar Sessión</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center py-4">
+            <div class="col-6 text-center justify-content-around d-flex">
+                <form action="./edit.html">
+                    <button class="btn bg-blue" type="submit">Editar Encuesta</button>
+                </form>
+                <form action="./view.html">
+                    <button class="btn bg-light" type="submit">Resumen</button>
+                </form>
+                <form action="./answer.html">
+                    <button class="btn bg-green" type="submit">Respuestas</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-center my-4">
+            <div class="col-10">
+
+                <div class="text-center mb-4">
+                    <a class="btn btn-light" type="submit">Respuesta: # / #</a>
+                </div>
+
+                <div class="card border-0">
+                    <div class="row justify-content-center align-items-center">
+
+                        <div class="col text-center">
+                            <h1><</h1>
+                        </div>
+                        
+                        <div class="col-6 p-4 bg-light shadow-sm">
+                            <div class="flex-column">
+                                <h1 class="fw-bolder">¿Pregunta?</h1>
+
+                                <div class="form-group my-4">
+                                    <label for="">Opcion</label>
+                                    <input class="form-check-input" type="checkbox" name="" id="">
+                                </div>
+
+                                <div class="form-group my-4">
+                                    <label for="">Opcion</label>
+                                    <input class="form-check-input" type="checkbox" name="" id="">
+                                </div>
+
+                                <div class="form-group my-4">
+                                    <label for="">Opcion</label>
+                                    <input class="form-check-input" type="checkbox" name="" id="">
+                                </div>
+
+                                <div class="form-group my-4">
+                                    <p>*Necesaria</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col text-center">
+                            <h1>></h1>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+-->
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
