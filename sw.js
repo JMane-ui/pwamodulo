@@ -87,7 +87,7 @@ self.addEventListener('push', function(event) {
     }
     var title = data.title || "Something Has Happened";
     var message = data.message || "Here's something you might want to check out.";
-    var icon = "images/new-notification.png";
+    var icon = "img/circle-cropped.png";
   
     var notification = new self.Notification(title, {
       body: message,
