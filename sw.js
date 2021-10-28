@@ -97,7 +97,7 @@ self.addEventListener('push', function(event) {
     }
     var title = data.title || "Something Has Happened";
     var message = data.message || "Here's something you might want to check out.";
-    var icon = "images/new-notification.png";
+    var icon = "images/favicon.png";
   
     var notification = new self.Notification(title, {
       body: message,
@@ -107,7 +107,7 @@ self.addEventListener('push', function(event) {
   
     notification.addEventListener('click', function() {
       if (clients.openWindow) {
-        clients.openWindow('dashboard.html');
+        clients.openWindow('https://jmane-ui.github.io/pwamodulo/dashboard.html');
       }
     });
   });
