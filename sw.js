@@ -86,23 +86,28 @@ self.addEventListener('fetch', e => {
     );
 });
 
-self.addEventListener('push', function(e) {
-    var options = {
-      body: 'This notification was generated from a push!',
-      icon: 'img/favicon.png',
-      vibrate: [100, 50, 100],
-      data: {
-        dateOfArrival: Date.now(),
-        primaryKey: '2'
-      },
-      actions: [
-        {action: 'explore', title: 'Explore this new world',
-          icon: 'images/checkmark.png'},
-        {action: 'close', title: 'Close',
-          icon: 'images/xmark.png'},
-      ]
-    };
-    e.waitUntil(
-      self.registration.showNotification('Hello world!', options)
-    );
+self.addEventListener('push', function(event) {
+    if (!(self.Notification && self.Notification.permission === 'granted')) {
+      return;
+    }
+  
+    var data = {};
+    if (event.data) {
+      data = event.data.json();
+    }
+    var title = data.title || "Something Has Happened";
+    var message = data.message || "Here's something you might want to check out.";
+    var icon = "images/new-notification.png";
+  
+    var notification = new self.Notification(title, {
+      body: message,
+      tag: 'simple-push-demo-notification',
+      icon: icon
+    });
+  
+    notification.addEventListener('click', function() {
+      if (clients.openWindow) {
+        clients.openWindow('dashboard.html');
+      }
+    });
   });
