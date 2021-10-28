@@ -107,7 +107,7 @@ self.addEventListener('push', function(event) {
   
     notification.addEventListener('click', function() {
       if (clients.openWindow) {
-        clients.openWindow('https://jmane-ui.github.io/pwamodulo/dashboard.html');
+        clients.openWindow('https://jmane-ui.github.io/pwamodulo/dashboard.html?');
       }
     });
   });
