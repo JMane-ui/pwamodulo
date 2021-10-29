@@ -86,28 +86,37 @@ self.addEventListener('fetch', e => {
     );
 });
 
-self.addEventListener('push', function(event) {
-    if (!(self.Notification && self.Notification.permission === 'granted')) {
-      return;
-    }
-  
-    var data = {};
-    if (event.data) {
-      data = event.data.json();
-    }
-    var title = data.title || "Something Has Happened";
-    var message = data.message || "Here's something you might want to check out.";
-    var icon = "images/favicon.png";
-  
-    var notification = new self.Notification(title, {
-      body: message,
-      tag: 'simple-push-demo-notification',
-      icon: icon
-    });
-  
-    notification.addEventListener('click', function() {
-      if (clients.openWindow) {
-        clients.openWindow('https://jmane-ui.github.io/pwamodulo/dashboard.html?');
+
+function getEndpoint() {
+    return self.registration.pushManager.getSubscription()
+    .then(function(subscription) {
+      if (subscription) {
+        return subscription.endpoint;
       }
+  
+      throw new Error('User not subscribed');
     });
+  }
+
+   
+  self.addEventListener('push', function(event) {
+
+    event.waitUntil(
+      getEndpoint()
+      .then(function(endpoint) {
+
+   
+        return fetch('./getPayload?endpoint=' + endpoint);
+      })
+      .then(function(response) {
+        return response.text();
+      })
+      .then(function(payload) {
+
+   
+        self.registration.showNotification('ServiceWorker Cookbook', {
+          body: payload,
+        });
+      })
+    );
   });
