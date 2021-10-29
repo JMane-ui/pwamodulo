@@ -71,7 +71,7 @@ self.addEventListener('activate', e => {
                 self.clients.claim(); //activar cache en todos los clientes
             })
     )
-})
+});
 
 //fetch
 self.addEventListener('fetch', e => {
@@ -84,4 +84,34 @@ self.addEventListener('fetch', e => {
                 return fetch( e.request );
             })
     );
-})
+});
+
+self.addEventListener('push', function(event) {
+    if (!(self.Notification && self.Notification.permission === 'granted')) {
+      return;
+    }
+  
+    var data = {};
+    if (event.data) {
+      data = event.data.json();
+    }
+    var title = data.title || "Solucionestai";
+    var message = data.message || "Bienvenido. Has iniciado sesión correctamente.";
+    var icon = "images/favicon.png";
+  
+    var notification = new self.Notification(title, {
+      body: message,
+      tag: 'simple-push-demo-notification',
+      icon: icon
+    });
+  
+    notification.addEventListener('click', function() {
+      if (clients.openWindow) {
+        clients.openWindow('https://jmane-ui.github.io/pwamodulo/dashboard.html?');
+      }
+    });
+  });
+
+self.addEventListener('error', function(e) {
+    console.log(e.filename, e.lineno, e.colno, e.message);
+  });
