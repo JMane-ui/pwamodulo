@@ -1,7 +1,7 @@
 :root {
-    --green: #7c942c;
-    --blue: #24345c;
-    --snow: #fffbffff;
+    --green: #7c942c !important;
+    --blue: #24345c !important;
+    --snow: #fffbffff !important;
 }
 
 body {
